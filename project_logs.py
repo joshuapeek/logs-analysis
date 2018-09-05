@@ -37,7 +37,7 @@ def question_one():
     # iterates through each item returned by query,
     # adding formatting to match required display
     for i in qone:
-        print('\t'), i[0], ('-'), i[1], ('views')
+        print('\t "{}" - {} views'.format(i[0], i[1]))
     return qone
 
 
