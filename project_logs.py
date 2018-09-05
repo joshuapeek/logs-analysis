@@ -24,7 +24,7 @@ def question_one():
        count(articles.title) AS views
     FROM articles
     JOIN log ON log.path = '/article/' || articles.slug
-    WHERE log.status LIKE '%200%'
+    WHERE log.status = '200 OK'
     GROUP BY articles.title
     ORDER BY views DESC
     LIMIT 3;
@@ -54,8 +54,8 @@ def question_two():
        count(articles.title) AS views
     FROM authors
     JOIN articles ON authors.id = articles.author
-    JOIN log ON log.path LIKE concat('%', articles.slug, '%')
-    WHERE log.status LIKE '%200%'
+    JOIN log ON log.path = '/article/' || articles.slug
+    WHERE log.status = '200 OK'
     GROUP BY authors.name
     ORDER BY views DESC;
     """
@@ -100,7 +100,6 @@ def question_three():
         ORDER BY date DESC) b ON a.date = b.date
     WHERE cast(a.error AS float)/cast(b.success AS float) > .01;
     """
-
     c.execute(query)
     # displays 'title' text of question
     print('\n3. On which days did more than 1% of requests lead to errors?')
@@ -113,14 +112,15 @@ def question_three():
     return qthree
 
 
-# print statement assuring user the queries are running and have not stalled
-print("\nPlease wait a moment, while data is retrieved from the database.")
+if __name__ == '__main__':
+    # assure user the queries are running,d have not stalled
+    print("\nPlease wait a moment, while data is retrieved from the database.")
 
-# calls functions in order to solve for question one, two then three
-question_one()
-question_two()
-question_three()
+    # calls functions in order to solve for question one, two then three
+    question_one()
+    question_two()
+    question_three()
 
-# prints a blank line after the last function's return,
-# for visual separation from terminal line
-print('\n')
+    # prints a blank line after the last function's return,
+    # for visual separation from terminal line
+    print('\n')
