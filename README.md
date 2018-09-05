@@ -47,6 +47,7 @@ Given questions are seen below, with corresponding answer formats beneath each. 
 The "news" database contains three tables, with the following structure:
 
 _articles table:_
+
 |Column|Key?   |Type       |
 |------|-------|-----------|
 |author|foreign|integer    |
@@ -58,6 +59,7 @@ _articles table:_
 |id    |primary|integer    |
 
 _authors table:_
+
 |Column|Key?   |Type       |
 |------|-------|-----------|
 |name  |foreign|text       |
@@ -65,6 +67,7 @@ _authors table:_
 |id    |primary|integer    |
 
 _log table:_
+
 |Column|Key?   |Type       |
 |------|-------|-----------|
 |path  |       |text       |
