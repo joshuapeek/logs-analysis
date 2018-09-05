@@ -1,5 +1,6 @@
 # project-logs
 This python script was written as part the first project within Udacity's Full Stack Web Developer Nanodegree.
+Written by Joshua Peek.
 
 
 ### Project Requirements
