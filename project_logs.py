@@ -17,16 +17,19 @@ def question_one():
     db = psycopg2.connect(database=DBNAME)
     # creates a cursor to execute query
     c = db.cursor()
-    # executes query, returning top 3 articles by views
-    c.execute(
-        "select articles.title, count(articles.title) as views "
-        "from articles join log "
-        "on log.path like concat('%', articles.slug, '%') "
-        "where log.status like '%200%' "
-        "group by articles.title "
-        "order by views "
-        "desc limit 3;"
-        )
+    # defines, then executes query,
+    # returning top 3 articles by views
+    query = """
+    SELECT articles.title,
+       count(articles.title) AS views
+    FROM articles
+    JOIN log ON log.path LIKE concat('%', articles.slug, '%')
+    WHERE log.status LIKE '%200%'
+    GROUP BY articles.title
+    ORDER BY views DESC
+    LIMIT 3;
+    """
+    c.execute(query)
     # displays 'title' text of question
     print('\n1. What are the most popular three articles of all time?')
     qone = c.fetchall()
@@ -44,16 +47,19 @@ def question_two():
     db = psycopg2.connect(database=DBNAME)
     # creates a cursor to execute query
     c = db.cursor()
-    # executes query, returning top 3 article authors by views
-    c.execute(
-        "select authors.name, count(articles.title) as views "
-        "from authors "
-        "join articles on authors.id = articles.author "
-        "join log on log.path like concat('%', articles.slug, '%') "
-        "where log.status like '%200%' "
-        "group by authors.name "
-        "order by views desc;"
-        )
+    # defines, then executes query,
+    # returning top 3 article authors by views
+    query = """
+    SELECT authors.name,
+       count(articles.title) AS views
+    FROM authors
+    JOIN articles ON authors.id = articles.author
+    JOIN log ON log.path LIKE concat('%', articles.slug, '%')
+    WHERE log.status LIKE '%200%'
+    GROUP BY authors.name
+    ORDER BY views DESC;
+    """
+    c.execute(query)
     # displays 'title' text of question
     print('\n2. Who are the most popular article authors of all time?')
     qtwo = c.fetchall()
@@ -73,25 +79,29 @@ def question_three():
     c = db.cursor()
     # executes query, returning any days where
     # more than 1% of requests led to errors
-    c.execute(
-        "select "
-        "a.date as date, a.error as error, b.success as success, "
-        "cast(a.error as float)/cast(b.success as float) as percentage "
-        "from (select "
-        "to_char(time, 'FMMonth FMDD, FMYYYY') as date, "
-        "count(status) as error from log "
-        "where status = '404 NOT FOUND' "
-        "group by date "
-        "order by date desc) a "
-        "join (select "
-        "to_char(time, 'FMMonth FMDD, FMYYYY') as date, "
-        "count(status) as success "
-        "from log "
-        "where status = '200 OK' "
-        "group by date "
-        "order by date desc) b "
-        "on a.date = b.date "
-        "where cast(a.error as float)/cast(b.success as float) > .01;")
+    query = """
+    SELECT a.date AS date,
+        a.error AS error,
+        b.success AS success,
+        cast(a.error AS float)/cast(b.success AS float) AS percentage
+    FROM
+        (SELECT to_char(TIME, 'FMMonth FMDD, FMYYYY') AS date,
+            count(status) AS error
+        FROM log
+        WHERE status = '404 NOT FOUND'
+        GROUP BY date
+        ORDER BY date DESC) a
+    JOIN
+        (SELECT to_char(TIME, 'FMMonth FMDD, FMYYYY') AS date,
+            count(status) AS success
+        FROM log
+        WHERE status = '200 OK'
+        GROUP BY date
+        ORDER BY date DESC) b ON a.date = b.date
+    WHERE cast(a.error AS float)/cast(b.success AS float) > .01;
+    """
+
+    c.execute(query)
     # displays 'title' text of question
     print('\n3. On which days did more than 1% of requests lead to errors?')
     qthree = c.fetchall()
