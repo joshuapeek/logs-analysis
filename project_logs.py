@@ -23,7 +23,7 @@ def question_one():
     SELECT articles.title,
        count(articles.title) AS views
     FROM articles
-    JOIN log ON log.path LIKE concat('%', articles.slug, '%')
+    JOIN log ON log.path = '/article/' || articles.slug
     WHERE log.status LIKE '%200%'
     GROUP BY articles.title
     ORDER BY views DESC
