@@ -12,6 +12,7 @@ project-logs was written by Joshua Peek.
 2. [Project Requirements](#project-requirements)
 3. ['news' Database Structure](#news-database-structure)
 4. [Code Design](#code-design)
+5. [Thanks & Acknowledgement](#thanks-acknowledgement)
 
 
 
@@ -164,3 +165,37 @@ _log table:_
 
 
 ## Code Design
+
+This script is comprised of three functions:
+- `question_one`
+- `question_two`
+- `question_three`
+
+Each function performs the same set of actions:
+1. Connect to the 'news' database.
+2. Leaning on psycopg2, create a cursor to execute the query.
+3. Define the query, assigning to a local variable.
+   - _This action is different between the functions, as the required answers vary._
+4. Leaning on psycopg2, execute the defined query.
+5. Print the text/title of the question.
+6. Iterate through the table elements returned by the query.
+7. Print elements using "New Style" String Formatting to match 'Answer Format' defined above.
+
+Calls to initiate the functions are nested within an `if` statement.
+This is to ensure the file is run directly, and not imported.
+Within the `if` statement:
+- Each function is called in order:
+  1. question_one
+  2. question_two
+  3. question_three
+- A blank line is then printed, providing visual separation from the next terminal line.
+
+
+
+
+## Thanks & Acknowledgement
+Special thanks to the Udacity Mentors, who've helped tremendously.
+Specifically, providing guidance with my sql `JOIN` statements, and using "New String" String Formatting.
+These items helped streamline my sql, and provide greater control of answer presentation.
+
+Thank you!
