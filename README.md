@@ -10,8 +10,14 @@ Written by Joshua Peek.
 
 ### Download and Installation
 **Download Required Files**
+
 **Install Dependencies**
+
 **Install Database**
+
+[Back to Index](#index)
+
+
 
 
 ### Project Requirements
@@ -48,6 +54,10 @@ The expected answer format for each given question is seen below. _Note: These a
 3. On which days did more than 1% of requests lead to errors?
    - July 29, 2016 — 2.5% errors
 
+[Back to Index](#index)
+
+
+
 
 ### "news" Database Structure
 The "news" database contains three tables, with the following structure:
@@ -82,6 +92,10 @@ _log table:_
 |status|       |text       |
 |time  |       |timestamptz|
 |id    |primary|integer    |
+
+[Back to Index](#index)
+
+
 
 
 ### Code Design
