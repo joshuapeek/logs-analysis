@@ -4,15 +4,22 @@ This script demonstrates mastery of skills learned within the first project of U
 
 project-logs was written by Joshua Peek.
 
+
+
+
 ## Index
 1. [Download and Installation](#download-and-installation)
 2. [Project Requirements](#project-requirements)
 3. ['news' Database Structure](#news-database-structure)
 4. [Code Design](#code-design)
 
+
+
+
 ## Download and Installation
 Be sure to follow these items in order, starting at the top, and working downward.
 Ex: _Virtual Machine Elements_ first, and _The 'news' Database_ last.
+
 
 **Virtual Machine Elements**
 
@@ -51,16 +58,26 @@ _Note: If you're using Python2, the 'news' database, and project-logs script wil
 
 You'll also need to install the psycopg2 library for use with Python.
 - Within your terminal, simply run `pip install psycopg2`.
-- [Complete documentation for psycopg2 is found here.](https://pypi.org/project/psycopg2/)
+- [Complete documentation for psycopg2 can be found here.](https://pypi.org/project/psycopg2/)
+
 
 **The 'news' Database**
 
 PostgreSQL is already installed on your VM, as part of the VM Configuration, detailed above.
 To use the 'news' database, you'll need to have the provided PostgreSQL database 'news' installed.
-You'll also need Python3 installed, the project-logs script itself, and all of the Python dependencies described below.
+1. [Download the 'news' database here.](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
+2. Unzip the file, and locate the contained file called `newsdata.sql`
+3. Place this `newsdata.sql` file into the `vagrant` directory.
+4. Before loading the data, be sure your VM is on the `vagrant` directory. If not, `cd` into it.
+5. Load the data by using the command `psql -d news -f newsdata.sql`
+   - This command connects to a 'news' database, and runs a series of SQL statements, setting up the 'news' database for use.
 
-To use the project-logs script
 
+**Launching project-logs**
+To launch the script, enter the following within the VM terminal: `python project_logs.py`
+You should see a message printed within the terminal, confirming that the queries are being run.
+Shortly thereafter, you should see the answers displayed.
+The answers should display as defined in 'Answer Formats' below.
 
 [Back to Index](#index)
 
@@ -88,6 +105,7 @@ The script must perform the following:
 
 
 **Answer Formats**
+
 The expected answer format for each given question is seen below. _Note: These answers are not correct, they simply show format._
 1. What are the most popular three articles of all time?
    - "Princess Shellfish Marries Prince Handsome" — 1201 views
@@ -106,8 +124,8 @@ The expected answer format for each given question is seen below. _Note: These a
 
 
 
-## "news" Database Structure
-The "news" database contains three tables, with the following structure:
+## 'news' Database Structure
+The provided PostgreSQL database 'news' contains three tables, with the following structure:
 
 _articles table:_
 
