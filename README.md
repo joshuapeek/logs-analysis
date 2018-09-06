@@ -75,6 +75,7 @@ To use the 'news' database, you'll need to have the provided PostgreSQL database
 
 
 **Launching project-logs**
+
 To launch the script, enter the following within the VM terminal: `python project_logs.py`
 You should see a message printed within the terminal, confirming that the queries are being run.
 Shortly thereafter, you should see the answers displayed.
