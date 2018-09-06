@@ -11,40 +11,56 @@ project-logs was written by Joshua Peek.
 4. [Code Design](#code-design)
 
 ## Download and Installation
+Be sure to follow these items in order, starting at the top, and working downward.
+Ex: _Virtual Machine Elements_ first, and _The 'news' Database_ last.
+
 **Virtual Machine Elements**
+
 This project makes use of a Linux-based virtual machine (VM).
 It's suggested that you use the tools Vagrant and VirtualBox to install and manage the VM.
 The course provides [this helpful video](https://www.youtube.com/watch?v=djnqoEO2rLc) as a conceptual overview of virtual machines and Vagrant, if you're not familiar with either.
 
-VirtualBox installation
+VirtualBox installation:
 1. [Download VirtualBox from VirtualBox.org, here.](https://www.virtualbox.org/wiki/Download_Old_Builds_5_1)
 2. Install the _platform package_ for your operating system. You will not need the extension pack or SDK.
 
-Vagrant installation
+Vagrant installation:
 1. [Download Vagrant from VagrantUp.com, here](https://www.vagrantup.com/downloads.html)
 2. Install the appropriate version for your operating system.
 3. Windows users: If prompted, be sure to grant network permissions to Vagrant, or make a firewall exception.
 _Run `vagrant --version` in your terminal. A returned version number verifies correct installation._
 
-VM Configuration
+VM Configuration:
 1. Within GitHub, fork and clone [the configuration repository, here](https://github.com/udacity/fullstack-nanodegree-vm)
 2. When launching Vagrant, be sure to `cd` into the **vagrant** directory created by this Configuration
 
-Starting the VM
+Starting the VM:
 1. From your terminal, inside the **vagrant** subdiractory, run the command `vagrant up`.
 2. Vagrant will perform necessary setup, which may take several minutes.
 3. When setup is completed, use your returned shell prompt to run `vagrant ssh`.
 4. Vagrant will log you into your newly installed Linux VM!
 _A shell prompt beginning with `vagrant` signifies correct installation._
+_Remember to `cd` into the **vagrant** directory!_
 
-**Download Required Files**
-To use the 'news' database, you'll need to have
+
+**Python3 and Dependencies**
+
+The project-logs script makes use of Python3.
+To install Python3: [Select the version appropriate for your operating system, here.](https://www.python.org/downloads/)
+_Note: If you're using Python2, the 'news' database, and project-logs script will not work._
+
+You'll also need to install the psycopg2 library for use with Python.
+- Within your terminal, simply run `pip install psycopg2`.
+- [Complete documentation for psycopg2 is found here.](https://pypi.org/project/psycopg2/)
+
+**The 'news' Database**
+
+PostgreSQL is already installed on your VM, as part of the VM Configuration, detailed above.
+To use the 'news' database, you'll need to have the provided PostgreSQL database 'news' installed.
+You'll also need Python3 installed, the project-logs script itself, and all of the Python dependencies described below.
 
 To use the project-logs script
 
-**Install Dependencies**
-
-**Install Database**
 
 [Back to Index](#index)
 
