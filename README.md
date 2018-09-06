@@ -1,15 +1,46 @@
 # project-logs
-This python script was written as part the first project within Udacity's Full Stack Web Developer Nanodegree.
-Written by Joshua Peek.
+The project-logs python script will interact with a provided 'news' database, performing queries and returning results.
+This script demonstrates mastery of skills learned within the first project of Udacity's Full Stack Web Developer Nanodegree.
 
-### Index
+project-logs was written by Joshua Peek.
+
+## Index
 1. [Download and Installation](#download-and-installation)
 2. [Project Requirements](#project-requirements)
 3. ['news' Database Structure](#news-database-structure)
 4. [Code Design](#code-design)
 
-### Download and Installation
+## Download and Installation
+**Virtual Machine Elements**
+This project makes use of a Linux-based virtual machine (VM).
+It's suggested that you use the tools Vagrant and VirtualBox to install and manage the VM.
+The course provides [this helpful video](https://www.youtube.com/watch?v=djnqoEO2rLc) as a conceptual overview of virtual machines and Vagrant, if you're not familiar with either.
+
+VirtualBox installation
+1. [Download VirtualBox from VirtualBox.org, here.](https://www.virtualbox.org/wiki/Download_Old_Builds_5_1)
+2. Install the _platform package_ for your operating system. You will not need the extension pack or SDK.
+
+Vagrant installation
+1. [Download Vagrant from VagrantUp.com, here](https://www.vagrantup.com/downloads.html)
+2. Install the appropriate version for your operating system.
+3. Windows users: If prompted, be sure to grant network permissions to Vagrant, or make a firewall exception.
+_Run `vagrant --version` in your terminal. A returned version number verifies correct installation._
+
+VM Configuration
+1. Within GitHub, fork and clone [the configuration repository, here](https://github.com/udacity/fullstack-nanodegree-vm)
+2. When launching Vagrant, be sure to `cd` into the **vagrant** directory created by this Configuration
+
+Starting the VM
+1. From your terminal, inside the **vagrant** subdiractory, run the command `vagrant up`.
+2. Vagrant will perform necessary setup, which may take several minutes.
+3. When setup is completed, use your returned shell prompt to run `vagrant ssh`.
+4. Vagrant will log you into your newly installed Linux VM!
+_A shell prompt beginning with `vagrant` signifies correct installation._
+
 **Download Required Files**
+To use the 'news' database, you'll need to have
+
+To use the project-logs script
 
 **Install Dependencies**
 
@@ -20,7 +51,7 @@ Written by Joshua Peek.
 
 
 
-### Project Requirements
+## Project Requirements
 For those enrolled, [have a look at the full project rubric here.](https://review.udacity.com/#!/rubrics/277/view)
 
 The script's code must conform to:
@@ -59,7 +90,7 @@ The expected answer format for each given question is seen below. _Note: These a
 
 
 
-### "news" Database Structure
+## "news" Database Structure
 The "news" database contains three tables, with the following structure:
 
 _articles table:_
@@ -98,4 +129,4 @@ _log table:_
 
 
 
-### Code Design
+## Code Design
