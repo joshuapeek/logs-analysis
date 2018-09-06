@@ -2,6 +2,17 @@
 This python script was written as part the first project within Udacity's Full Stack Web Developer Nanodegree.
 Written by Joshua Peek.
 
+### Index
+1. [Download and Installation](#download-and-installation)
+2. [Project Requirements](#project-requirements)
+3. ['news' Database Structure](#news-database-structure)
+4. [Code Design](#code-design)
+
+### Download and Installation
+**Download Required Files**
+**Install Dependencies**
+**Install Database**
+
 
 ### Project Requirements
 For those enrolled, [have a look at the full project rubric here.](https://review.udacity.com/#!/rubrics/277/view)
@@ -12,7 +23,10 @@ The script's code must conform to:
 
 The script must perform the following:
 - Connect to the provided 'news' database
-- Perform sql queries to answer the given questions
+- Perform sql queries to answer three given questions:
+  1. What are the most popular three articles of all time?
+  2. Who are the most popular article authors of all time?
+  3. On which days did more than 1% of requests lead to errors?
 - Report the returned data:
   - As sorted lists,
   - In text format,
@@ -20,8 +34,8 @@ The script must perform the following:
   - Correctly answering the given questions
 
 
-### Given Questions, Answer Formats
-Given questions are seen below, with corresponding answer formats beneath each. _Note: These answers are not correct, they simply show format._
+**Answer Formats**
+The expected answer format for each given question is seen below. _Note: These answers are not correct, they simply show format._
 1. What are the most popular three articles of all time?
    - "Princess Shellfish Marries Prince Handsome" — 1201 views
    - "Baltimore Ravens Defeat Rhode Island Shoggoths" — 915 views
@@ -35,15 +49,7 @@ Given questions are seen below, with corresponding answer formats beneath each. 
    - July 29, 2016 — 2.5% errors
 
 
-### Questions: Detailed Explanation
-1. What are the most popular three articles of all time?
-   - Which articles have been accessed the most? Present this information as a sorted list with the most popular article at the top.
-2. Who are the most popular article authors of all time?
-   - That is, when you sum up all of the articles each author has written, which authors get the most page views? Present this as a sorted list with the most popular author at the top.
-3. On which days did more than 1% of requests lead to errors?
-   - The log table includes a column status that indicates the HTTP status code that the news site sent to the user's browser.
-
-## "news" Database Structure
+### "news" Database Structure
 The "news" database contains three tables, with the following structure:
 
 _articles table:_
@@ -76,3 +82,6 @@ _log table:_
 |status|       |text       |
 |time  |       |timestamptz|
 |id    |primary|integer    |
+
+
+### Code Design
