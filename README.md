@@ -12,7 +12,7 @@ project-logs was written by Joshua Peek.
 2. [Project Requirements](#project-requirements)
 3. ['news' Database Structure](#news-database-structure)
 4. [Code Design](#code-design)
-5. [Thanks & Acknowledgement](#thanks-acknowledgement)
+5. [Thanks & Acknowledgement](#thanks--acknowledgement)
 
 
 
